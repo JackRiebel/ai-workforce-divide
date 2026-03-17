@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Divide Is Already Here — Data Behind the LinkedIn Post</title>
+
+<!-- OG Meta Tags for LinkedIn sharing -->
+<meta property="og:title" content="The AI Divide Is Already Here">
+<meta property="og:description" content="56% wage premium. 15-55% productivity gains. 3x industry gap. The data behind AI splitting the workforce — interactive charts from BLS, Anthropic, and PwC.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jackriebel.github.io/ai-jobs-linkedin/">
+<meta property="og:image" content="https://jackriebel.github.io/ai-jobs-linkedin/og-image.png">
+<meta property="og:site_name" content="AI Workforce Divide — Interactive Data">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The AI Divide Is Already Here">
+<meta name="twitter:description" content="56% wage premium. 15-55% productivity gains. 3x industry gap. Interactive data on how AI is splitting the workforce.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-content">
+    <h1>The AI Divide Is Already Here</h1>
+    <p class="subtitle">Interactive data behind the argument: AI isn't replacing all jobs — it's splitting the workforce into those who use it and those who don't. Backed by BLS federal data, Anthropic's Economic Index, PwC's analysis of ~1B job postings, and peer-reviewed productivity studies.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-value">56%</span>
+        <span class="hero-stat-label">AI Wage Premium</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">15–55%</span>
+        <span class="hero-stat-label">Productivity Gains</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">3x</span>
+        <span class="hero-stat-label">Industry Gap</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">~10%</span>
+        <span class="hero-stat-label">Firms Using AI</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">143M</span>
+        <span class="hero-stat-label">Jobs Analyzed</span>
+      </div>
+    </div>
+    <div class="hero-sources">
+      Data: <a href="https://www.bls.gov/ooh/" target="_blank">Bureau of Labor Statistics OOH</a> &middot;
+      <a href="https://www.anthropic.com/research/labor-market-impacts" target="_blank">Anthropic Economic Index</a> &middot;
+      <a href="https://www.pwc.com/gx/en/news-room/press-releases/2025/ai-linked-to-a-fourfold-increase-in-productivity-growth.html" target="_blank">PwC (~1B job postings)</a> &middot;
+      <a href="https://github.com/JoshKale/jobs" target="_blank">JoshKale/jobs</a>
+    </div>
+  </div>
+</header>
+
+<!-- Navigation -->
+<nav class="sticky-nav" id="nav">
+  <div class="nav-inner">
+    <a href="#the-split" class="nav-link active">The Split</a>
+    <a href="#the-premium" class="nav-link">The Premium</a>
+    <a href="#the-equalizer" class="nav-link">The Equalizer</a>
+    <a href="#the-window" class="nav-link">The Window</a>
+    <a href="#methodology" class="nav-link">Methodology</a>
+  </div>
+</nav>
+
+<!-- TREEMAP: 143M Jobs at a Glance -->
+<section class="section" id="the-split" style="padding-bottom:16px;">
+  <div class="container">
+    <h2>The Split: 143M Jobs at a Glance</h2>
+    <p class="section-desc">AI exposure data shows the divide. Each tile below represents a real occupation — size is proportional to employment, color shows AI exposure: <strong style="color:#34d399;">green</strong> = low impact, <strong style="color:#ef4444;">red</strong> = highly exposed. The pattern is clear: expensive knowledge work is exactly what AI does best.</p>
+    <div class="treemap-wrapper">
+      <canvas id="treemapCanvas"></canvas>
+      <div id="treemapTooltip" class="treemap-tooltip">
+        <div class="tt-title"></div>
+        <div class="tt-exposure"></div>
+        <div class="tt-stats"></div>
+        <div class="tt-rationale"></div>
+      </div>
+    </div>
+    <div class="treemap-legend">
+      <span class="tl-label">Low Exposure</span>
+      <canvas id="treemapGradient" width="120" height="10"></canvas>
+      <span class="tl-label">High Exposure</span>
+      <span class="tl-sep">|</span>
+      <span class="tl-label">Area = number of jobs</span>
+    </div>
+
+    <div class="chart-row" style="margin-top:24px;">
+      <div class="chart-card wide">
+        <h3>How Many Workers Are at Each Exposure Level?</h3>
+        <p class="chart-desc">This histogram shows how many US workers fall at each exposure score (0–10), weighted by employment. The bimodal shape tells the story: a peak at 2–3 (millions of healthcare, food service, and construction workers shielded from AI) and another at 7 (knowledge workers in management, business, and tech). The split is already baked into the data.</p>
+        <canvas id="exposureHistogram"></canvas>
+      </div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-card">
+        <h3>Exposure Tier Breakdown</h3>
+        <p class="chart-desc">All 143M jobs grouped into five tiers. "Very High" (8–10) includes 25M workers in roles like programmers, financial clerks, and customer service reps. "Minimal" (0–1) includes 6M in purely physical jobs.</p>
+        <canvas id="tierDoughnut"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>AI Exposure by Pay Band</h3>
+        <p class="chart-desc">Higher-paid workers face <em>more</em> AI exposure — because expensive knowledge work (analysis, writing, coding) is exactly what AI does best. Anthropic's research confirms: highly exposed workers earn 47% more than unexposed ones. This is the opposite of past automation waves.</p>
+        <canvas id="payExposure"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 2: The Premium -->
+<section class="section alt" id="the-premium">
+  <div class="container">
+    <h2>The Premium: 56% Wage Gap, 3x Industry Divide</h2>
+    <p class="section-desc">PwC's analysis of ~1B job postings: AI-skilled roles pay 56% more — a premium that more than doubled in roughly a year (25% in their 2024 report to 56% in their 2025 report). AI-exposed industries see 27% productivity growth vs 9% for unexposed — a 3x gap. Meanwhile, AI-requiring job postings grew +7.5% even as total postings fell -11.3%.</p>
+    <div class="chart-row">
+      <div class="chart-card" style="display:flex; flex-direction:column;">
+        <h3>The AI Wage Premium Is Accelerating</h3>
+        <p class="chart-desc">PwC's analysis of ~1B job postings shows the wage premium for AI-skilled roles more than doubled in roughly a year — from 25% in their 2024 report to 56% in their 2025 report. The market signal is clear: AI skills are the most valuable differentiator in hiring.</p>
+        <div style="position:relative; flex:1; min-height:220px;"><canvas id="wagePremium"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Industry Productivity Gap</h3>
+        <p class="chart-desc">PwC found AI-exposed industries achieved 27% productivity growth (2018–2024) compared to just 9% for unexposed industries — a 3x gap that explains why the wage premium exists.</p>
+        <canvas id="industryProductivityGap"></canvas>
+      </div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-card wide">
+        <h3>Measured Productivity Gains from AI (6 Studies)</h3>
+        <p class="chart-desc">These aren't projections — they're measured results from controlled experiments. The range is remarkably consistent: 15–56% improvement. Notably, Brynjolfsson et al. found the largest gains for the <em>lowest-performing</em> workers (+36%), suggesting AI compresses the skill gap rather than widening it.</p>
+        <canvas id="productivityStudies"></canvas>
+      </div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-card wide">
+        <h3>Theoretical AI Capability vs Actual Usage by Sector</h3>
+        <p class="chart-desc">The <strong style="color:#a78bfa;">purple bars</strong> show what percentage of tasks AI could theoretically handle in each sector (Eloundou et al. β metric). The <strong style="color:#60a5fa;">blue bars</strong> show actual AI usage today (Anthropic, ~2M Claude conversations). The gap between them is why the premium exists — workers who close it capture outsized value.</p>
+        <canvas id="coverageGap"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3: The Equalizer -->
+<section class="section" id="the-equalizer">
+  <div class="container">
+    <h2>The Equalizer: Education Matters Less Than AI Skill</h2>
+    <p class="section-desc">The data shows a clear trend: degree requirements are dropping 7–9 percentage points for AI-augmented roles (PwC), and the biggest productivity gains go to the lowest performers — 36% for the bottom quintile vs 15% average (Brynjolfsson et al., n=5,172). AI proficiency is increasingly competing with credentials as a signal of capability.</p>
+    <div class="chart-row">
+      <div class="chart-card wide">
+        <h3>Projected Impact: Degree + AI Skill Matrix</h3>
+        <p class="chart-desc"><strong style="color:#34d399;">Green bars</strong> (AI-skilled) grow larger with more education, because AI amplifies domain expertise. <strong style="color:#f87171;">Red bars</strong> (not AI-skilled) get worse with more education, because those workers face the highest exposure without tools to offset it. The sweet spot: Master's+ AI-skilled (+48%). The danger zone: Bachelor's not-AI-skilled (-20%).</p>
+        <canvas id="eduAiSkill"></canvas>
+      </div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-card wide">
+        <h3>The Education-AI Matrix: Four Futures</h3>
+        <p class="chart-desc">This matrix maps four scenarios by combining education with AI proficiency. "Degree + AI-Skilled" is the strongest position, but "No Degree + AI-Skilled" may be the biggest opportunity — as degree requirements drop 7–9pp in AI roles, opening doors previously gated by credentials.</p>
+        <div class="matrix-grid" id="eduMatrix"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 4: The Window -->
+<section class="section alt" id="the-window">
+  <div class="container">
+    <h2>The Window: 90% of Your Competitors Haven't Started</h2>
+    <p class="section-desc">Only ~10% of US firms use AI in production (Census Bureau BTOS, Sept 2025). Even in the Information sector — the most AI-forward — over 60% of firms haven't started. The disruption we're seeing is from early adopters only. There's still time to get ahead.</p>
+    <div class="chart-row">
+      <div class="chart-card wide">
+        <h3>AI Adoption Is Still Early (Census Bureau)</h3>
+        <p class="chart-desc">Census Bureau Business Trends and Outlook Survey data. AI adoption roughly doubled from 4.6% to ~10% in under a year — but 90% of firms still haven't started. The competitive window is open, but closing fast as adoption follows an S-curve.</p>
+        <canvas id="adoptionRate"></canvas>
+      </div>
+    </div>
+
+    <!-- Brief CTA conclusion -->
+    <div class="conclusion-box" style="margin-top:28px;">
+      <h3>What You Can Do Now</h3>
+      <ul class="cb-actions">
+        <li><strong>Start using AI in your actual work this week.</strong> The productivity data is clear: gains come from applying AI to real tasks — drafting, research, data cleanup, code review — not from taking a course about AI.</li>
+        <li><strong>Focus on judgment, not output.</strong> AI generates drafts, code, and analysis faster than you can. The premium is shifting to people who can evaluate, refine, and direct AI output — knowing what to ask and when the answer is wrong.</li>
+        <li><strong>Treat the coverage gap as your window.</strong> Only ~10% of firms use AI in production. Most of your competitors haven't started. Every month you spend building AI fluency now compounds into advantage as adoption accelerates.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Section 5: Methodology -->
+<section class="section" id="methodology">
+  <div class="container">
+    <h2>Methodology & Data Accuracy</h2>
+    <p class="section-desc">Every number on this page is sourced from published research, federal data, or peer-reviewed experiments. No statistics are invented. Below is a full accounting of each data source, what it covers, and its limitations.</p>
+
+    <div class="method-grid">
+      <div class="method-card">
+        <h3>Occupation Data (BLS)</h3>
+        <p>All 342 occupations from the Bureau of Labor Statistics <a href="https://www.bls.gov/ooh/" target="_blank">Occupational Outlook Handbook</a> — the federal government's authoritative source on US employment. Includes median pay, employment counts, education requirements, and 10-year growth projections. BLS explicitly factors AI into projections: they modeled AI impact on specific occupations like medical transcriptionists (-4.7%), customer service reps (-5.0%), paralegals (1.2%), and software developers (+17.9%).</p>
+        <div class="method-tag">Federal government data &middot; <a href="https://www.bls.gov/opub/mlr/2025/article/incorporating-ai-impacts-in-bls-employment-projections.htm" target="_blank">BLS AI Methodology (Feb 2025)</a></div>
+      </div>
+
+      <div class="method-card">
+        <h3>AI Exposure Scoring (JoshKale/jobs)</h3>
+        <p>Each occupation's AI exposure score (0–10) was generated by sending the full BLS Markdown description to <strong>Gemini Flash</strong> (via OpenRouter) with a calibrated rubric. The rubric anchors: roofers/landscapers at 0–1, nurses/police at 4–5, developers/analysts at 8–9, data entry at 10. Key signal: is the work fundamentally digital? Scores are cross-validated against Anthropic's independent β metric.</p>
+        <div class="method-tag">LLM-scored with calibrated rubric &middot; <a href="https://github.com/JoshKale/jobs" target="_blank">Full source & rationales on GitHub</a></div>
+      </div>
+
+      <div class="method-card">
+        <h3>Anthropic Economic Index</h3>
+        <p><a href="https://www.anthropic.com/research/labor-market-impacts" target="_blank">Published research</a> introducing "observed exposure" — combining theoretical capability (β metric from Eloundou et al.) with real Claude usage data from millions of conversations. 57% of AI use augments work; 43% automates tasks. As of Jan 2025, 36% of sampled jobs see Claude used for 25%+ of tasks (rising to 49% across pooled reports).</p>
+        <div class="method-tag">Real usage data from Claude &middot; <a href="https://www.anthropic.com/economic-index" target="_blank">Anthropic Economic Index</a></div>
+      </div>
+
+      <div class="method-card">
+        <h3>Empirical Productivity Studies</h3>
+        <p>Six peer-reviewed experiments: <strong>Noy & Zhang (2023)</strong>: 40% time reduction, +18% quality (n=453). <strong>Brynjolfsson, Li & Raymond (2023)</strong>: 15% avg gain, 36% for bottom quintile (n=5,172). <strong>Peng et al.</strong>: GitHub Copilot 55.8% faster. <strong>Cui et al. (2025)</strong>: 26% more weekly tasks (n=5,000). <strong>St. Louis Fed</strong>: 33% more productive during AI use. Key pattern: AI disproportionately benefits lower-performing workers.</p>
+        <div class="method-tag">Peer-reviewed field experiments &middot; <a href="https://laweconcenter.org/resources/ai-productivity-and-labor-markets-a-review-of-the-empirical-evidence/" target="_blank">Full review of evidence</a></div>
+      </div>
+
+      <div class="method-card">
+        <h3>PwC Global AI Jobs Barometer</h3>
+        <p>Analysis of <strong>close to a billion job postings</strong> across 6 continents. AI-skilled roles pay 56% more (more than doubled in roughly a year). AI-exposed industries see 27% productivity growth vs 9% for unexposed (3x gap). AI-requiring postings grew +7.5% even as total postings fell -11.3%. Degree requirements dropping 7–9pp in AI roles. Skills in exposed roles changing 66% faster.</p>
+        <div class="method-tag">~1B job postings analyzed &middot; <a href="https://www.pwc.com/gx/en/news-room/press-releases/2025/ai-linked-to-a-fourfold-increase-in-productivity-growth.html" target="_blank">PwC 2025 Barometer</a></div>
+      </div>
+
+      <div class="method-card">
+        <h3>Brynjolfsson/ADP Employment Study</h3>
+        <p><strong>Brynjolfsson, Chandar & Chen (2025)</strong>, Stanford Digital Economy Lab. Analyzed <strong>3.5–5M workers monthly</strong> via ADP payroll data (25M+ US workers total). Found 16% relative employment decline for ages 22–25 in high-exposure occupations, but distinguishes automation (declining) from augmentation (growing). Updated November 2025.</p>
+        <div class="method-tag">3.5–5M workers/month &middot; <a href="https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/" target="_blank">Stanford DEL</a></div>
+      </div>
+
+      <div class="method-card">
+        <h3>Counterpoint: EIG & Yale Budget Lab</h3>
+        <p><strong>EIG (2025)</strong> tested 5 AI exposure measures against CPS data and found no AI-driven job losses. <strong>Yale Budget Lab (2026)</strong> compared 7 measures and found "stability, not major disruption." <strong>Brookings (March 2026)</strong>: "evidence is inconclusive" and warns of "narrator bias." These counterpoints are important context: the evidence is genuinely mixed.</p>
+        <div class="method-tag">Multiple counter-studies &middot; <a href="https://eig.org/ai-and-jobs-the-final-word/" target="_blank">EIG</a> &middot; <a href="https://budgetlab.yale.edu/research/labor-market-ai-exposure-what-do-we-know" target="_blank">Yale Budget Lab</a> &middot; <a href="https://www.hamiltonproject.org/publication/post/research-on-ai-and-the-labor-market-is-still-in-the-first-inning/" target="_blank">Brookings</a></div>
+      </div>
+
+      <div class="method-card">
+        <h3>AI Adoption Data (Census Bureau)</h3>
+        <p>Census Bureau <strong>Business Trends and Outlook Survey (BTOS)</strong>. Only <strong>~10% of firms</strong> use AI in production (Sept 2025), up from 4.6% in early 2024. Even in the Information sector, >60% of firms don't use AI. This is critical context: most of the disruption is still ahead.</p>
+        <div class="method-tag">Federal survey data &middot; <a href="https://www.census.gov/hfp/btos/data" target="_blank">Census BTOS</a></div>
+      </div>
+
+      <div class="method-card">
+        <h3>AI Improvement Rate & Limitations</h3>
+        <p>Anthropic's coverage gap is closing — usage rose from 36% to 49% of sampled jobs between reports. We model an S-curve adoption where effects accelerate mid-decade. <strong>Key limitations:</strong> (1) AI advancement may be faster or slower than modeled; (2) policy/regulation could alter outcomes; (3) new job categories will emerge; (4) individual outcomes vary enormously. Projections are directional, not precise.</p>
+        <div class="method-tag">Accounts for acceleration &middot; Honest about uncertainty</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>Data: <a href="https://www.bls.gov/ooh/" target="_blank">BLS OOH</a> &middot; <a href="https://www.anthropic.com/research/labor-market-impacts" target="_blank">Anthropic</a> &middot; <a href="https://www.pwc.com/gx/en/news-room/press-releases/2025/ai-linked-to-a-fourfold-increase-in-productivity-growth.html" target="_blank">PwC</a> &middot; <a href="https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/" target="_blank">Brynjolfsson/ADP</a> &middot; <a href="https://eig.org/ai-and-jobs-the-final-word/" target="_blank">EIG</a> &middot; <a href="https://budgetlab.yale.edu/research/labor-market-ai-exposure-what-do-we-know" target="_blank">Yale Budget Lab</a> &middot; <a href="https://www.census.gov/hfp/btos/data" target="_blank">Census BTOS</a> &middot; <a href="https://github.com/JoshKale/jobs" target="_blank">JoshKale/jobs</a></p>
+    <p class="footer-note">342 BLS occupations (2024). AI exposure by Gemini Flash. Companion data page for LinkedIn post. Not financial or career advice.</p>
+  </div>
+</footer>
+
+<script src="occupation_data.js"></script>
+<script src="data.js"></script>
+<script src="charts.js"></script>
+</body>
+</html>
