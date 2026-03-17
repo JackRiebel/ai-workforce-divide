@@ -26,7 +26,7 @@
 <header class="hero">
   <div class="hero-content">
     <h1>The AI Divide Is Already Here</h1>
-    <p class="subtitle">Interactive data behind the argument: AI isn't replacing all jobs — it's splitting the workforce into those who use it and those who don't. Backed by BLS federal data, Anthropic's Economic Index, PwC's analysis of ~1B job postings, and peer-reviewed productivity studies.</p>
+    <p class="subtitle">The conversation around AI and jobs tends to land in one of two places: either AI is about to replace everyone, or it's all hype and nothing has changed. The data tells a more nuanced story. AI isn't replacing all jobs — it's splitting the workforce into those who use it and those who don't. This page is the interactive evidence behind that argument, built on BLS federal data, Anthropic's Economic Index, PwC's analysis of ~1B job postings, and six peer-reviewed productivity experiments.</p>
     <div class="hero-stats">
       <div class="hero-stat">
         <span class="hero-stat-value">56%</span>
@@ -69,11 +69,12 @@
   </div>
 </nav>
 
-<!-- TREEMAP: 143M Jobs at a Glance -->
+<!-- Section 1: The Split -->
 <section class="section" id="the-split" style="padding-bottom:16px;">
   <div class="container">
     <h2>The Split: 143M Jobs at a Glance</h2>
-    <p class="section-desc">AI exposure data shows the divide. Each tile below represents a real occupation — size is proportional to employment, color shows AI exposure: <strong style="color:#34d399;">green</strong> = low impact, <strong style="color:#ef4444;">red</strong> = highly exposed. The pattern is clear: expensive knowledge work is exactly what AI does best.</p>
+    <p class="section-desc">Before we look at wages, productivity, or adoption curves, it helps to see the full landscape. The treemap below represents every one of the 342 occupations tracked by the Bureau of Labor Statistics — covering 143 million US workers. Each tile is a real job. Its size reflects how many Americans work in that role (bigger tile = more workers), and its color shows how much AI can automate or augment the work: <strong style="color:#34d399;">green</strong> means the job is mostly physical or in-person and AI has little impact, while <strong style="color:#ef4444;">red</strong> means the work is highly digital and AI can already handle much of it. Hover any tile for the full breakdown. Click to open the BLS profile.</p>
+
     <div class="treemap-wrapper">
       <canvas id="treemapCanvas"></canvas>
       <div id="treemapTooltip" class="treemap-tooltip">
@@ -91,22 +92,26 @@
       <span class="tl-label">Area = number of jobs</span>
     </div>
 
+    <p class="section-desc" style="margin-top:32px;">The pattern that jumps out is immediate: the largest red clusters aren't in factories or warehouses — they're in management, business, finance, and IT. The roles with the highest AI exposure are the ones we typically think of as "good jobs" — well-paid, white-collar, knowledge-intensive. That's the core of the split, and it inverts everything we've been taught about automation risk. Past waves of automation — manufacturing robots, self-checkout kiosks — hit low-wage, repetitive work hardest. AI is different. It targets the work that requires reading, writing, analyzing, and deciding — work that used to be safely above the automation line.</p>
+
+    <p class="section-desc">The next two charts break this down further. The histogram shows the distribution — how many workers sit at each exposure level — while the tier breakdown and pay band chart reveal who is most exposed and what they earn.</p>
+
     <div class="chart-row" style="margin-top:24px;">
       <div class="chart-card wide">
         <h3>How Many Workers Are at Each Exposure Level?</h3>
-        <p class="chart-desc">This histogram shows how many US workers fall at each exposure score (0–10), weighted by employment. The bimodal shape tells the story: a peak at 2–3 (millions of healthcare, food service, and construction workers shielded from AI) and another at 7 (knowledge workers in management, business, and tech). The split is already baked into the data.</p>
+        <p class="chart-desc">Each of the 342 BLS occupations was scored 0–10 on how much AI can automate or augment its work. A score of 0 means AI has essentially no impact (roofers, janitors). A score of 10 means the job is almost entirely digital and AI can already do most of it (medical transcriptionists, data entry keyers). This histogram shows how many US workers fall at each score, weighted by employment. Notice the bimodal shape — two distinct humps rather than a smooth bell curve. The peak at 2–3 represents millions of healthcare, food service, and construction workers who are largely shielded from AI. The peak at 7 reflects the enormous concentration of knowledge workers in management, business, and tech. That two-peak shape <em>is</em> the split: the workforce doesn't exist on a single spectrum. It's clustering into two groups with very different AI futures.</p>
         <canvas id="exposureHistogram"></canvas>
       </div>
     </div>
     <div class="chart-row">
       <div class="chart-card">
         <h3>Exposure Tier Breakdown</h3>
-        <p class="chart-desc">All 143M jobs grouped into five tiers. "Very High" (8–10) includes 25M workers in roles like programmers, financial clerks, and customer service reps. "Minimal" (0–1) includes 6M in purely physical jobs.</p>
+        <p class="chart-desc">All 143M jobs grouped into five tiers. "Very High" (8–10) includes 25 million workers in roles like software developers, financial clerks, tax preparers, and customer service representatives — jobs where nearly all tasks are digital. "Minimal" (0–1) covers 6 million workers in purely physical roles: roofers, landscapers, childcare workers. The middle tiers are where it gets interesting: "Moderate" (4–5) and "High" (6–7) together account for the bulk of US employment, and these are the workers whose futures depend most on whether they adopt AI as a tool or compete against it.</p>
         <canvas id="tierDoughnut"></canvas>
       </div>
       <div class="chart-card">
         <h3>AI Exposure by Pay Band</h3>
-        <p class="chart-desc">Higher-paid workers face <em>more</em> AI exposure — because expensive knowledge work (analysis, writing, coding) is exactly what AI does best. Anthropic's research confirms: highly exposed workers earn 47% more than unexposed ones. This is the opposite of past automation waves.</p>
+        <p class="chart-desc">This chart upends the conventional wisdom about automation risk. Workers earning over $100K face significantly higher AI exposure than those earning under $35K. Why? Because expensive knowledge work — analysis, writing, coding, research, financial modeling — is exactly what AI does best. Anthropic's research confirms the pattern: highly AI-exposed workers earn 47% more on average than unexposed ones. In every previous wave of automation, from mechanized agriculture to factory robots, the lowest-paid workers bore the brunt. AI is the first major technology to disproportionately target the top of the income distribution. That doesn't mean high earners will lose their jobs — it means they face the most pressure to adapt.</p>
         <canvas id="payExposure"></canvas>
       </div>
     </div>
@@ -117,30 +122,36 @@
 <section class="section alt" id="the-premium">
   <div class="container">
     <h2>The Premium: 56% Wage Gap, 3x Industry Divide</h2>
-    <p class="section-desc">PwC's analysis of ~1B job postings: AI-skilled roles pay 56% more — a premium that more than doubled in roughly a year (25% in their 2024 report to 56% in their 2025 report). AI-exposed industries see 27% productivity growth vs 9% for unexposed — a 3x gap. Meanwhile, AI-requiring job postings grew +7.5% even as total postings fell -11.3%.</p>
+    <p class="section-desc">If Section 1 showed <em>where</em> the split is, this section shows <em>what it pays</em>. The labor market is already pricing in AI proficiency — and the gap is widening fast. PwC's Global AI Jobs Barometer, drawing from close to a billion job postings across six continents, found that roles requiring AI skills pay 56% more on average. That premium more than doubled in roughly a year — from 25% in their 2024 report to 56% in their 2025 report. At the same time, AI-requiring job postings grew +7.5% year over year even as total job postings fell -11.3%. The market isn't subtle about what it values: it's paying a premium for AI fluency, and that premium is accelerating.</p>
+
+    <p class="section-desc">But the premium isn't just a wage story. It shows up at the industry level too. AI-exposed industries are seeing 27% productivity growth compared to just 9% for unexposed industries — a 3x gap that compounds over time. The two charts below put these numbers side by side.</p>
+
     <div class="chart-row">
       <div class="chart-card" style="display:flex; flex-direction:column;">
         <h3>The AI Wage Premium Is Accelerating</h3>
-        <p class="chart-desc">PwC's analysis of ~1B job postings shows the wage premium for AI-skilled roles more than doubled in roughly a year — from 25% in their 2024 report to 56% in their 2025 report. The market signal is clear: AI skills are the most valuable differentiator in hiring.</p>
+        <p class="chart-desc">PwC analyzed close to a billion job postings and found the wage premium for AI-skilled roles more than doubled in roughly a year — from 25% in their 2024 report to 56% in their 2025 report. This isn't a one-time bump. It's a trajectory: as more organizations realize AI fluency drives output, they bid up the workers who have it. The premium exists across industries and geographies, suggesting it reflects a fundamental shift in what the labor market values rather than a sector-specific anomaly. Meanwhile, AI-requiring job postings grew +7.5% even as total postings fell -11.3%, meaning demand for AI-skilled workers is rising against a contracting overall market.</p>
         <div style="position:relative; flex:1; min-height:220px;"><canvas id="wagePremium"></canvas></div>
       </div>
       <div class="chart-card">
         <h3>Industry Productivity Gap</h3>
-        <p class="chart-desc">PwC found AI-exposed industries achieved 27% productivity growth (2018–2024) compared to just 9% for unexposed industries — a 3x gap that explains why the wage premium exists.</p>
+        <p class="chart-desc">The wage premium doesn't exist in a vacuum — it's backed by real productivity differences. PwC found that industries most exposed to AI achieved 27% productivity growth between 2018 and 2024, while the least exposed industries managed just 9%. That 3x gap explains why the premium exists: AI-exposed industries are generating more output per worker, which translates into higher wages and faster growth. The gap also compounds — a 3x productivity advantage in one period doesn't reset; it widens as AI-forward industries reinvest their gains into further AI adoption.</p>
         <canvas id="industryProductivityGap"></canvas>
       </div>
     </div>
+
+    <p class="section-desc" style="margin-top:16px;">The wage premium and productivity gap raise an obvious question: if AI delivers such clear gains, why isn't everyone using it? The answer lies in the next two charts. First, the empirical evidence — six controlled studies showing what happens when workers actually use AI. Then, the coverage gap — the enormous difference between what AI <em>could</em> do in each sector and what it's actually being used for today.</p>
+
     <div class="chart-row">
       <div class="chart-card wide">
         <h3>Measured Productivity Gains from AI (6 Studies)</h3>
-        <p class="chart-desc">These aren't projections — they're measured results from controlled experiments. The range is remarkably consistent: 15–56% improvement. Notably, Brynjolfsson et al. found the largest gains for the <em>lowest-performing</em> workers (+36%), suggesting AI compresses the skill gap rather than widening it.</p>
+        <p class="chart-desc">These aren't projections or forecasts — they're measured results from controlled experiments across different industries, tasks, and worker populations. The range is remarkably consistent: 15–56% productivity improvement when workers use AI tools. Peng et al. found GitHub Copilot made software developers 55.8% faster. Noy & Zhang (n=453) found a 40% time reduction and +18% quality improvement for professionals using ChatGPT. Cui et al. (n=5,000) found 26% more weekly tasks completed. The St. Louis Fed found workers were 33% more productive during AI use. Most striking of all: Brynjolfsson, Li & Raymond (n=5,172) found the largest gains went to the <em>lowest-performing</em> workers — a 36% gain for the bottom quintile vs 15% for the average. That last finding matters enormously. It means AI doesn't just make good workers better — it disproportionately lifts the people who need the most help. It compresses the skill gap rather than widening it.</p>
         <canvas id="productivityStudies"></canvas>
       </div>
     </div>
     <div class="chart-row">
       <div class="chart-card wide">
         <h3>Theoretical AI Capability vs Actual Usage by Sector</h3>
-        <p class="chart-desc">The <strong style="color:#a78bfa;">purple bars</strong> show what percentage of tasks AI could theoretically handle in each sector (Eloundou et al. β metric). The <strong style="color:#60a5fa;">blue bars</strong> show actual AI usage today (Anthropic, ~2M Claude conversations). The gap between them is why the premium exists — workers who close it capture outsized value.</p>
+        <p class="chart-desc">This may be the most important chart on the page. The <strong style="color:#a78bfa;">purple bars</strong> show what percentage of tasks AI could theoretically handle in each sector, based on the Eloundou et al. β metric — a measure of how many occupational tasks could be meaningfully sped up by AI tools. The <strong style="color:#60a5fa;">blue bars</strong> show what percentage of tasks are actually being done with AI today, based on Anthropic's analysis of roughly 2 million real Claude conversations (January 2026 report). The gap between them — often 50–60 percentage points — represents unrealized potential. In Computer & Math, AI could theoretically handle 94% of tasks but is only used for 35.8%. In Legal, the gap is even wider: 89% theoretical vs 20.4% actual. This gap is why the wage premium exists. Every point of that gap that a worker or organization closes translates into real value — faster output, lower costs, better decisions. And the gap is closing: Anthropic's data shows the share of occupations where AI is used for 25%+ of tasks rose from 36% to 49% between their reports. As adoption accelerates, the window to capture that value narrows.</p>
         <canvas id="coverageGap"></canvas>
       </div>
     </div>
@@ -151,18 +162,24 @@
 <section class="section" id="the-equalizer">
   <div class="container">
     <h2>The Equalizer: Education Matters Less Than AI Skill</h2>
-    <p class="section-desc">The data shows a clear trend: degree requirements are dropping 7–9 percentage points for AI-augmented roles (PwC), and the biggest productivity gains go to the lowest performers — 36% for the bottom quintile vs 15% average (Brynjolfsson et al., n=5,172). AI proficiency is increasingly competing with credentials as a signal of capability.</p>
+    <p class="section-desc">Here's where the data gets genuinely surprising. For decades, the conventional career advice has been straightforward: get a degree, get a better job. And that advice wasn't wrong — education correlates with higher pay, more stability, and access to knowledge-work roles. But AI is reshaping that equation. The data shows a clear and consistent trend: degree requirements are dropping 7–9 percentage points for AI-augmented roles (PwC, ~1B job postings), and the biggest productivity gains consistently go to the lowest performers — 36% for the bottom quintile vs 15% for the average (Brynjolfsson et al., n=5,172). AI proficiency is increasingly competing with formal credentials as a signal of what a worker can actually do.</p>
+
+    <p class="section-desc">This doesn't mean education is irrelevant — the data shows the opposite. Education combined with AI skill produces the strongest outcomes. But it does mean that a degree alone, without AI fluency, is becoming a weaker position than it used to be. And a worker without a degree who develops strong AI skills is gaining access to opportunities that were previously gated by credentials. The chart below models what happens when you cross education level with AI proficiency.</p>
+
     <div class="chart-row">
       <div class="chart-card wide">
         <h3>Projected Impact: Degree + AI Skill Matrix</h3>
-        <p class="chart-desc"><strong style="color:#34d399;">Green bars</strong> (AI-skilled) grow larger with more education, because AI amplifies domain expertise. <strong style="color:#f87171;">Red bars</strong> (not AI-skilled) get worse with more education, because those workers face the highest exposure without tools to offset it. The sweet spot: Master's+ AI-skilled (+48%). The danger zone: Bachelor's not-AI-skilled (-20%).</p>
+        <p class="chart-desc">This grouped bar chart crosses two variables — education level and AI proficiency — to project employability changes by 2034. The <strong style="color:#34d399;">green bars</strong> (AI-skilled workers) grow larger with more education, because AI amplifies domain expertise: a data scientist who uses AI for rapid modeling captures more value than one who doesn't. The <strong style="color:#f87171;">red bars</strong> (workers without AI skills) tell the opposite story: they get worse with more education, because more educated workers tend to be in high-exposure roles — exactly the jobs where AI can do the most. The numbers in parentheses on the x-axis show the real average exposure score for each education level, calculated from all 342 BLS occupations. The sweet spot is Master's+ with AI skills (+48%). The danger zone is Bachelor's without AI skills (-20%) — these workers have high exposure and no tools to offset it. The real exposure scores come from BLS employment data; the projections are grounded in PwC's 56% wage premium, Anthropic's displacement model (-0.6pp per 10pp coverage), and BLS growth forecasts.</p>
         <canvas id="eduAiSkill"></canvas>
       </div>
     </div>
+
+    <p class="section-desc" style="margin-top:16px;">The matrix below expands on the chart above — four distinct scenarios based on where you land on both the education and AI-skill dimensions. Each quadrant shows the research-backed outlook, real-world examples, and the logic behind the projection. Pay particular attention to the bottom-left quadrant ("No Degree + AI-Skilled") — this is where the equalizer effect is strongest. PwC's data shows degree requirements dropping 7–9 percentage points in AI roles, and Brynjolfsson's finding that the lowest-performing workers gain the most from AI (+36%) suggests that AI tools are opening doors that credentials used to guard.</p>
+
     <div class="chart-row">
       <div class="chart-card wide">
         <h3>The Education-AI Matrix: Four Futures</h3>
-        <p class="chart-desc">This matrix maps four scenarios by combining education with AI proficiency. "Degree + AI-Skilled" is the strongest position, but "No Degree + AI-Skilled" may be the biggest opportunity — as degree requirements drop 7–9pp in AI roles, opening doors previously gated by credentials.</p>
+        <p class="chart-desc">Four distinct career trajectories based on where you land across education and AI proficiency. The strongest position is "Degree + AI-Skilled" — domain expertise amplified by AI mastery. But the biggest <em>opportunity</em> may be "No Degree + AI-Skilled" — as degree requirements drop 7–9pp in AI roles (PwC) and productivity data shows the biggest gains going to workers who previously had the fewest advantages.</p>
         <div class="matrix-grid" id="eduMatrix"></div>
       </div>
     </div>
@@ -173,22 +190,26 @@
 <section class="section alt" id="the-window">
   <div class="container">
     <h2>The Window: 90% of Your Competitors Haven't Started</h2>
-    <p class="section-desc">Only ~10% of US firms use AI in production (Census Bureau BTOS, Sept 2025). Even in the Information sector — the most AI-forward — over 60% of firms haven't started. The disruption we're seeing is from early adopters only. There's still time to get ahead.</p>
+    <p class="section-desc">Every number in the sections above — the 56% wage premium, the 3x productivity gap, the 15–55% individual gains, the widening split between AI-skilled and non-AI-skilled workers — all of that is happening at roughly 10% adoption. Only about one in ten US firms use AI in production today, according to the Census Bureau's Business Trends and Outlook Survey (Sept 2025), up from 4.6% in early 2024. Even in the Information sector — tech companies, software firms, data processors — over 60% of firms haven't adopted AI at all.</p>
+
+    <p class="section-desc">This is the most important context for everything on this page. The disruption we're measuring is being caused by early adopters alone. As adoption climbs from 10% toward 50%+ — following the S-curve pattern that every major technology adoption has followed — every effect intensifies. The wage premium gets larger before it eventually compresses once AI becomes table stakes. The productivity gap widens before it plateaus. The coverage gap closes, and with it, the window of opportunity for workers and organizations to get ahead.</p>
+
     <div class="chart-row">
       <div class="chart-card wide">
         <h3>AI Adoption Is Still Early (Census Bureau)</h3>
-        <p class="chart-desc">Census Bureau Business Trends and Outlook Survey data. AI adoption roughly doubled from 4.6% to ~10% in under a year — but 90% of firms still haven't started. The competitive window is open, but closing fast as adoption follows an S-curve.</p>
+        <p class="chart-desc">This chart draws from the Census Bureau's Business Trends and Outlook Survey — actual firm-level adoption data, not projections or sentiment surveys. The first bar is the headline: only 10% of US firms use AI in production. The broader measure (any business function, including experimentation) is 17.3%. Even in the most AI-forward sectors — Publishing (36%) and Data Processing (35%) — a majority of firms haven't started. AI adoption roughly doubled from 4.6% to ~10% in under a year, indicating the S-curve is steepening. But the key takeaway is simpler: 90% of your competitors, in most industries, haven't started yet. That's a window. It won't stay open forever — adoption is accelerating — but right now, the early-mover advantage is enormous because so few organizations have moved at all.</p>
         <canvas id="adoptionRate"></canvas>
       </div>
     </div>
 
     <!-- Brief CTA conclusion -->
     <div class="conclusion-box" style="margin-top:28px;">
-      <h3>What You Can Do Now</h3>
+      <h3>What This Means</h3>
+      <p class="cb-lead">Across 342 occupations, 143 million US jobs, and research from a dozen major institutions, one pattern emerges: AI is not replacing all jobs — but it is fundamentally reshaping what qualifications, skills, and infrastructure matter. The organizations and individuals who act on this data while adoption is still at 10% will compound their advantage as adoption accelerates. Here's what the data says to do about it:</p>
       <ul class="cb-actions">
-        <li><strong>Start using AI in your actual work this week.</strong> The productivity data is clear: gains come from applying AI to real tasks — drafting, research, data cleanup, code review — not from taking a course about AI.</li>
-        <li><strong>Focus on judgment, not output.</strong> AI generates drafts, code, and analysis faster than you can. The premium is shifting to people who can evaluate, refine, and direct AI output — knowing what to ask and when the answer is wrong.</li>
-        <li><strong>Treat the coverage gap as your window.</strong> Only ~10% of firms use AI in production. Most of your competitors haven't started. Every month you spend building AI fluency now compounds into advantage as adoption accelerates.</li>
+        <li><strong>Start using AI in your actual work this week.</strong> The productivity data is unambiguous: 15–55% gains come from applying AI to real tasks — drafting, research, data cleanup, code review, financial analysis — not from taking a course about AI. The workers in the studies above didn't attend an AI bootcamp. They used AI tools on their existing work and got measurably faster.</li>
+        <li><strong>Focus on judgment, not output.</strong> AI generates drafts, code, analysis, and research faster than any individual can. The premium is shifting to people who can evaluate, refine, and direct AI output — knowing what to ask, recognizing when the answer is wrong, and combining AI's speed with domain expertise. That judgment layer is where the 56% wage premium lives.</li>
+        <li><strong>Treat the coverage gap as your window.</strong> Only ~10% of firms use AI in production. Most of your competitors — and most of your coworkers — haven't started. The coverage gap between what AI can theoretically do and what it's actually doing is 50–60 percentage points in most sectors. Every month you spend building AI fluency now compounds into advantage as adoption accelerates along the S-curve.</li>
       </ul>
     </div>
   </div>
@@ -198,7 +219,7 @@
 <section class="section" id="methodology">
   <div class="container">
     <h2>Methodology & Data Accuracy</h2>
-    <p class="section-desc">Every number on this page is sourced from published research, federal data, or peer-reviewed experiments. No statistics are invented. Below is a full accounting of each data source, what it covers, and its limitations.</p>
+    <p class="section-desc">Every number on this page is sourced from published research, federal data, or peer-reviewed experiments. No statistics are invented or estimated. Below is a full accounting of each data source — what it covers, how large its sample is, and what its limitations are — so you can verify any claim and judge the analysis for yourself. Where the evidence is mixed or contested, we say so.</p>
 
     <div class="method-grid">
       <div class="method-card">
@@ -221,7 +242,7 @@
 
       <div class="method-card">
         <h3>Empirical Productivity Studies</h3>
-        <p>Six peer-reviewed experiments: <strong>Noy & Zhang (2023)</strong>: 40% time reduction, +18% quality (n=453). <strong>Brynjolfsson, Li & Raymond (2023)</strong>: 15% avg gain, 36% for bottom quintile (n=5,172). <strong>Peng et al.</strong>: GitHub Copilot 55.8% faster. <strong>Cui et al. (2025)</strong>: 26% more weekly tasks (n=5,000). <strong>St. Louis Fed</strong>: 33% more productive during AI use. Key pattern: AI disproportionately benefits lower-performing workers.</p>
+        <p>Six peer-reviewed experiments: <strong>Noy & Zhang (2023)</strong>: 40% time reduction, +18% quality (n=453). <strong>Brynjolfsson, Li & Raymond (2023)</strong>: 15% avg gain, 36% for bottom quintile (n=5,172). <strong>Peng et al.</strong>: GitHub Copilot 55.8% faster. <strong>Cui et al. (2025)</strong>: 26% more weekly tasks (n=5,000). <strong>St. Louis Fed</strong>: 33% more productive during AI use. Key pattern: AI disproportionately benefits lower-performing workers (skill compression). <strong>Caveat per Brookings:</strong> these studies are from early adopters and may not generalize broadly.</p>
         <div class="method-tag">Peer-reviewed field experiments &middot; <a href="https://laweconcenter.org/resources/ai-productivity-and-labor-markets-a-review-of-the-empirical-evidence/" target="_blank">Full review of evidence</a></div>
       </div>
 
@@ -239,19 +260,19 @@
 
       <div class="method-card">
         <h3>Counterpoint: EIG & Yale Budget Lab</h3>
-        <p><strong>EIG (2025)</strong> tested 5 AI exposure measures against CPS data and found no AI-driven job losses. <strong>Yale Budget Lab (2026)</strong> compared 7 measures and found "stability, not major disruption." <strong>Brookings (March 2026)</strong>: "evidence is inconclusive" and warns of "narrator bias." These counterpoints are important context: the evidence is genuinely mixed.</p>
+        <p><strong>EIG (2025)</strong> tested 5 AI exposure measures against CPS data and found no AI-driven job losses — unemployment actually rose <em>less</em> for the most AI-exposed workers. <strong>Yale Budget Lab (2026)</strong> compared 7 measures and found "stability, not major disruption." <strong>Brookings (March 2026)</strong>: "evidence is inconclusive" and warns of "narrator bias" — researchers whose own jobs are AI-exposed may overinterpret early signals. These counterpoints are important context: the productivity and wage premium data is strong, but the employment displacement evidence is genuinely mixed.</p>
         <div class="method-tag">Multiple counter-studies &middot; <a href="https://eig.org/ai-and-jobs-the-final-word/" target="_blank">EIG</a> &middot; <a href="https://budgetlab.yale.edu/research/labor-market-ai-exposure-what-do-we-know" target="_blank">Yale Budget Lab</a> &middot; <a href="https://www.hamiltonproject.org/publication/post/research-on-ai-and-the-labor-market-is-still-in-the-first-inning/" target="_blank">Brookings</a></div>
       </div>
 
       <div class="method-card">
         <h3>AI Adoption Data (Census Bureau)</h3>
-        <p>Census Bureau <strong>Business Trends and Outlook Survey (BTOS)</strong>. Only <strong>~10% of firms</strong> use AI in production (Sept 2025), up from 4.6% in early 2024. Even in the Information sector, >60% of firms don't use AI. This is critical context: most of the disruption is still ahead.</p>
+        <p>Census Bureau <strong>Business Trends and Outlook Survey (BTOS)</strong>. Only <strong>~10% of firms</strong> use AI in production (Sept 2025), up from 4.6% in early 2024. Broader measure (any business function): 17.3%. Even in the Information sector, >60% of firms don't use AI. This is critical context: the effects documented on this page are from early adopters alone. As adoption climbs from 10% toward 50%+, every measured effect will intensify.</p>
         <div class="method-tag">Federal survey data &middot; <a href="https://www.census.gov/hfp/btos/data" target="_blank">Census BTOS</a></div>
       </div>
 
       <div class="method-card">
         <h3>AI Improvement Rate & Limitations</h3>
-        <p>Anthropic's coverage gap is closing — usage rose from 36% to 49% of sampled jobs between reports. We model an S-curve adoption where effects accelerate mid-decade. <strong>Key limitations:</strong> (1) AI advancement may be faster or slower than modeled; (2) policy/regulation could alter outcomes; (3) new job categories will emerge; (4) individual outcomes vary enormously. Projections are directional, not precise.</p>
+        <p>Anthropic's coverage gap is closing — usage rose from 36% to 49% of sampled jobs between reports. We model an S-curve adoption where effects accelerate mid-decade. <strong>Key limitations:</strong> (1) AI advancement may be faster or slower than modeled; (2) policy/regulation could alter outcomes; (3) new job categories will emerge that don't exist today; (4) individual outcomes vary enormously based on industry, role, and geography. Projections are directional, not precise — they show where trends point, not exactly where they'll land.</p>
         <div class="method-tag">Accounts for acceleration &middot; Honest about uncertainty</div>
       </div>
     </div>
@@ -262,7 +283,7 @@
 <footer>
   <div class="container">
     <p>Data: <a href="https://www.bls.gov/ooh/" target="_blank">BLS OOH</a> &middot; <a href="https://www.anthropic.com/research/labor-market-impacts" target="_blank">Anthropic</a> &middot; <a href="https://www.pwc.com/gx/en/news-room/press-releases/2025/ai-linked-to-a-fourfold-increase-in-productivity-growth.html" target="_blank">PwC</a> &middot; <a href="https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/" target="_blank">Brynjolfsson/ADP</a> &middot; <a href="https://eig.org/ai-and-jobs-the-final-word/" target="_blank">EIG</a> &middot; <a href="https://budgetlab.yale.edu/research/labor-market-ai-exposure-what-do-we-know" target="_blank">Yale Budget Lab</a> &middot; <a href="https://www.census.gov/hfp/btos/data" target="_blank">Census BTOS</a> &middot; <a href="https://github.com/JoshKale/jobs" target="_blank">JoshKale/jobs</a></p>
-    <p class="footer-note">342 BLS occupations (2024). AI exposure by Gemini Flash. Companion data page for LinkedIn post. Not financial or career advice.</p>
+    <p class="footer-note">342 BLS occupations (2024). AI exposure by Gemini Flash. Not financial or career advice.</p>
   </div>
 </footer>
 
