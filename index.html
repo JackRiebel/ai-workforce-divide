@@ -21,12 +21,13 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="reading-progress" id="readingProgress"></div>
 
 <!-- Hero -->
 <header class="hero">
   <div class="hero-content">
     <h1>The AI Divide Is Already Here</h1>
-    <p class="subtitle">The conversation around AI and jobs tends to land in one of two places: either AI is about to replace everyone, or it's all hype and nothing has changed. The data tells a more nuanced story. AI isn't replacing all jobs — it's splitting the workforce into those who use it and those who don't. This page is the interactive evidence behind that argument, built on BLS federal data, Anthropic's Economic Index, PwC's analysis of ~1B job postings, and six peer-reviewed productivity experiments.</p>
+    <p class="subtitle">AI isn't coming for factory workers. It's coming for the corner office. Across 143 million US jobs, the highest-paid, most-educated roles face the most AI exposure — and the workers who use AI are pulling away from those who don't. The same split is opening between organizations: the 10% of firms that have adopted AI are capturing a 3x productivity advantage while the other 90% haven't started. This is the interactive evidence — for individuals navigating their careers and enterprises planning their workforce — built on BLS federal data, Anthropic's Economic Index, PwC's analysis of ~1B job postings, and six peer-reviewed productivity experiments.</p>
     <div class="hero-stats">
       <div class="hero-stat">
         <span class="hero-stat-value">56%</span>
@@ -94,6 +95,8 @@
 
     <p class="section-desc" style="margin-top:32px;">The pattern that jumps out is immediate: the largest red clusters aren't in factories or warehouses — they're in management, business, finance, and IT. The roles with the highest AI exposure are the ones we typically think of as "good jobs" — well-paid, white-collar, knowledge-intensive. That's the core of the split, and it inverts everything we've been taught about automation risk. Past waves of automation — manufacturing robots, self-checkout kiosks — hit low-wage, repetitive work hardest. AI is different. It targets the work that requires reading, writing, analyzing, and deciding — work that used to be safely above the automation line.</p>
 
+    <p class="section-desc">For organizations, this map is a strategic planning tool. The departments lighting up red — finance, legal, IT, marketing, business operations — are typically the highest-cost teams on the org chart. They're also where AI can deliver the most leverage. An enterprise that audits its own workforce against this exposure map can identify which functions will face the most competitive pressure, where AI augmentation will yield the highest ROI, and which roles need to be redesigned before the market does it for them. The companies that treat this as a workforce planning exercise — not an abstract technology trend — will be the ones that capture the value instead of reacting to it.</p>
+
     <p class="section-desc">The next two charts break this down further. The histogram shows the distribution — how many workers sit at each exposure level — while the tier breakdown and pay band chart reveal who is most exposed and what they earn.</p>
 
     <div class="chart-row" style="margin-top:24px;">
@@ -124,7 +127,7 @@
     <h2>The Premium: 56% Wage Gap, 3x Industry Divide</h2>
     <p class="section-desc">If Section 1 showed <em>where</em> the split is, this section shows <em>what it pays</em>. The labor market is already pricing in AI proficiency — and the gap is widening fast. PwC's Global AI Jobs Barometer, drawing from close to a billion job postings across six continents, found that roles requiring AI skills pay 56% more on average. That premium more than doubled in roughly a year — from 25% in their 2024 report to 56% in their 2025 report. At the same time, AI-requiring job postings grew +7.5% year over year even as total job postings fell -11.3%. The market isn't subtle about what it values: it's paying a premium for AI fluency, and that premium is accelerating.</p>
 
-    <p class="section-desc">But the premium isn't just a wage story. It shows up at the industry level too. AI-exposed industries are seeing 27% productivity growth compared to just 9% for unexposed industries — a 3x gap that compounds over time. The two charts below put these numbers side by side.</p>
+    <p class="section-desc">But the premium isn't just a wage story — and it isn't just an individual one. It shows up at the industry level too. AI-exposed industries are seeing 27% productivity growth compared to just 9% for unexposed industries — a 3x gap that compounds over time. For organizations, this creates a dual pressure: companies in AI-exposed industries that don't adopt are falling behind their sector peers, while companies in unexposed industries risk being disrupted by competitors who use AI to enter their market from above. The 56% premium also has a direct impact on hiring budgets and talent retention — organizations that can't offer AI-skilled roles (or can't develop AI skills internally) will increasingly lose top talent to those that can. The two charts below put these numbers side by side.</p>
 
     <div class="chart-row">
       <div class="chart-card" style="display:flex; flex-direction:column;">
@@ -139,19 +142,24 @@
       </div>
     </div>
 
-    <p class="section-desc" style="margin-top:16px;">The wage premium and productivity gap raise an obvious question: if AI delivers such clear gains, why isn't everyone using it? The answer lies in the next two charts. First, the empirical evidence — six controlled studies showing what happens when workers actually use AI. Then, the coverage gap — the enormous difference between what AI <em>could</em> do in each sector and what it's actually being used for today.</p>
+    <p class="section-desc" style="margin-top:16px;">The wage premium and productivity gap raise an obvious question: if AI delivers such clear gains, why isn't everyone using it? The answer lies in the next two charts. First, the empirical evidence — six controlled studies showing what happens when workers actually use AI. Then, the coverage gap — the enormous difference between what AI <em>could</em> do in each sector and what it's actually being used for today. For enterprises, the coverage gap is especially telling: it represents the delta between what your competitors <em>could</em> be doing with AI and what they're actually doing — and by extension, the opportunity your organization has to get there first.</p>
 
     <div class="chart-row">
       <div class="chart-card wide">
         <h3>Measured Productivity Gains from AI (6 Studies)</h3>
-        <p class="chart-desc">These aren't projections or forecasts — they're measured results from controlled experiments across different industries, tasks, and worker populations. The range is remarkably consistent: 15–55% productivity improvement when workers use AI tools. Peng et al. found GitHub Copilot made software developers 55.8% faster. Noy & Zhang (n=453) found a 40% time reduction and +18% quality improvement for professionals using ChatGPT. Cui et al. (n=5,000) found 26% more weekly tasks completed. The St. Louis Fed found workers were 33% more productive during AI use. Most striking of all: Brynjolfsson, Li & Raymond (n=5,172) found the largest gains went to the <em>lowest-performing</em> workers — a 36% gain for the bottom quintile vs 15% for the average. That last finding matters enormously. It means AI doesn't just make good workers better — it disproportionately lifts the people who need the most help. It compresses the skill gap rather than widening it.</p>
+        <p class="chart-desc">These aren't projections or forecasts — they're measured results from controlled experiments across different industries, tasks, and worker populations. The range is remarkably consistent: 15–55% productivity improvement when workers use AI tools. Peng et al. found GitHub Copilot made software developers 55.8% faster. Noy & Zhang (n=453) found a 40% time reduction and +18% quality improvement for professionals using ChatGPT. Cui et al. (n=5,000) found 26% more weekly tasks completed. The St. Louis Fed found workers were 33% more productive during AI use. Most striking of all: Brynjolfsson, Li & Raymond (n=5,172) found the largest gains went to the <em>lowest-performing</em> workers — a 36% gain for the bottom quintile vs 15% for the average. That last finding matters enormously — for individuals, it means AI doesn't just make good workers better; it disproportionately lifts the people who need the most help. For organizations, it means AI compresses the performance distribution within teams. A company that rolls out AI tools across a department doesn't just make its stars faster — it raises the floor, reducing the gap between top and bottom performers. The organizational implication is profound: AI-enabled teams become more consistently productive, not just faster on average.</p>
         <canvas id="productivityStudies"></canvas>
       </div>
     </div>
+    <div class="callout-banner" style="margin-top:8px; margin-bottom:24px; padding:20px 24px; border-left:4px solid var(--purple); background:rgba(167,139,250,0.06); border-radius:0 10px 10px 0;">
+      <p style="font-size:15px; font-weight:600; color:#fff; margin-bottom:6px;">The Biggest Opportunity Nobody Is Talking About</p>
+      <p style="font-size:14px; color:var(--fg2); line-height:1.7; margin:0;">AI could theoretically handle 94% of Computer & Math tasks — but only 35.8% are actually done with AI today. In Legal, it's 89% vs 20.4%. That 50–60 point gap exists across every sector, and it's the single biggest reason the wage premium exists. Every point of that gap that you — or your organization — close first is value your competitors haven't captured yet.</p>
+    </div>
+
     <div class="chart-row">
       <div class="chart-card wide">
-        <h3>Theoretical AI Capability vs Actual Usage by Sector</h3>
-        <p class="chart-desc">This may be the most important chart on the page. The <strong style="color:#a78bfa;">purple bars</strong> show what percentage of tasks AI could theoretically handle in each sector, based on the Eloundou et al. β metric — a measure of how many occupational tasks could be meaningfully sped up by AI tools. The <strong style="color:#60a5fa;">blue bars</strong> show what percentage of tasks are actually being done with AI today, based on Anthropic's analysis of roughly 2 million real Claude conversations (January 2026 report). The gap between them — often 50–60 percentage points — represents unrealized potential. In Computer & Math, AI could theoretically handle 94% of tasks but is only used for 35.8%. In Legal, the gap is even wider: 89% theoretical vs 20.4% actual. This gap is why the wage premium exists. Every point of that gap that a worker or organization closes translates into real value — faster output, lower costs, better decisions. And the gap is closing: Anthropic's data shows the share of occupations where AI is used for 25%+ of tasks rose from 36% to 49% between their reports. As adoption accelerates, the window to capture that value narrows.</p>
+        <h3>The Coverage Gap: What AI Could Do vs What It Actually Does</h3>
+        <p class="chart-desc">This may be the most important chart on the page. The <strong style="color:#a78bfa;">purple bars</strong> show what percentage of tasks AI could theoretically handle in each sector, based on the Eloundou et al. β metric — a measure of how many occupational tasks could be meaningfully sped up by AI tools. The <strong style="color:#60a5fa;">blue bars</strong> show what percentage of tasks are actually being done with AI today, based on Anthropic's analysis of roughly 2 million real Claude conversations (January 2026 report). The gap between them — often 50–60 percentage points — represents unrealized potential. In Computer & Math, AI could theoretically handle 94% of tasks but is only used for 35.8%. In Legal, the gap is even wider: 89% theoretical vs 20.4% actual. This gap is why the wage premium exists — and it's a direct measure of competitive opportunity for organizations. Every point of that gap that a company closes before its competitors translates into lower operating costs, faster time-to-market, and higher output per employee. For enterprises, the coverage gap is essentially a heat map of where AI investment will yield the most return: departments with the widest theoretical-vs-actual gap are the ones with the most untapped leverage. And the gap is closing — Anthropic's data shows the share of occupations where AI is used for 25%+ of tasks rose from 36% to 49% between their reports. As adoption accelerates, the window to capture that value narrows for individuals and organizations alike.</p>
         <canvas id="coverageGap"></canvas>
       </div>
     </div>
@@ -164,7 +172,9 @@
     <h2>The Equalizer: Education Matters Less Than AI Skill</h2>
     <p class="section-desc">Here's where the data gets genuinely surprising. For decades, the conventional career advice has been straightforward: get a degree, get a better job. And that advice wasn't wrong — education correlates with higher pay, more stability, and access to knowledge-work roles. But AI is reshaping that equation. The data shows a clear and consistent trend: degree requirements are dropping 7–9 percentage points for AI-augmented roles (PwC, ~1B job postings), and the biggest productivity gains consistently go to the lowest performers — 36% for the bottom quintile vs 15% for the average (Brynjolfsson et al., n=5,172). AI proficiency is increasingly competing with formal credentials as a signal of what a worker can actually do.</p>
 
-    <p class="section-desc">This doesn't mean education is irrelevant — the data shows the opposite. Education combined with AI skill produces the strongest outcomes. But it does mean that a degree alone, without AI fluency, is becoming a weaker position than it used to be. And a worker without a degree who develops strong AI skills is gaining access to opportunities that were previously gated by credentials. The chart below models what happens when you cross education level with AI proficiency.</p>
+    <p class="section-desc">This doesn't mean education is irrelevant — the data shows the opposite. Education combined with AI skill produces the strongest outcomes. But it does mean that a degree alone, without AI fluency, is becoming a weaker position than it used to be. And a worker without a degree who develops strong AI skills is gaining access to opportunities that were previously gated by credentials.</p>
+
+    <p class="section-desc">For organizations, this shift has immediate implications for talent strategy. Companies that still screen primarily on credentials are filtering out an expanding pool of AI-skilled candidates who could outperform credentialed hires. PwC's data shows degree requirements are already dropping 7–9 percentage points in AI-augmented roles — employers are adapting. The enterprises that move fastest to hire for demonstrated AI proficiency rather than pedigree will access a larger, less competed-over talent pool. At the same time, investing in AI reskilling for existing employees — especially those without advanced degrees — may be the highest-ROI talent investment available: the productivity data consistently shows the biggest gains go to workers starting from the lowest baseline. A reskilling program that lifts your median performers to near-top-performer levels is worth more than any single hire. The chart below models what happens when you cross education level with AI proficiency.</p>
 
     <div class="chart-row">
       <div class="chart-card wide">
@@ -174,7 +184,10 @@
       </div>
     </div>
 
-    <p class="section-desc" style="margin-top:16px;">The matrix below expands on the chart above — four distinct scenarios based on where you land on both the education and AI-skill dimensions. Each quadrant shows the research-backed outlook, real-world examples, and the logic behind the projection. Pay particular attention to the bottom-left quadrant ("No Degree + AI-Skilled") — this is where the equalizer effect is strongest. PwC's data shows degree requirements dropping 7–9 percentage points in AI roles, and Brynjolfsson's finding that the lowest-performing workers gain the most from AI (+36%) suggests that AI tools are opening doors that credentials used to guard.</p>
+    <div class="callout-banner" style="margin-top:16px; margin-bottom:24px; padding:20px 24px; border-left:4px solid var(--green); background:rgba(52,211,153,0.06); border-radius:0 10px 10px 0;">
+      <p style="font-size:15px; font-weight:600; color:#fff; margin-bottom:6px;">If you read nothing else on this page, read the matrix below.</p>
+      <p style="font-size:14px; color:var(--fg2); line-height:1.7; margin:0;">It maps four distinct futures based on two variables — education and AI skill — and shows why the combination matters more than either one alone. For individuals, it's a career roadmap. For organizations, it's a workforce audit: plot your headcount across these four quadrants and you'll see exactly where your talent risk and opportunity concentrate.</p>
+    </div>
 
     <div class="chart-row">
       <div class="chart-card wide">
@@ -192,12 +205,14 @@
     <h2>The Window: 90% of Your Competitors Haven't Started</h2>
     <p class="section-desc">Every number in the sections above — the 56% wage premium, the 3x productivity gap, the 15–55% individual gains, the widening split between AI-skilled and non-AI-skilled workers — all of that is happening at roughly 10% adoption. Only about one in ten US firms use AI in production today, according to the Census Bureau's Business Trends and Outlook Survey (Sept 2025), up from 4.6% in early 2024. Even in the Information sector — tech companies, software firms, data processors — over 60% of firms haven't adopted AI at all.</p>
 
-    <p class="section-desc">This is the most important context for everything on this page. The disruption we're measuring is being caused by early adopters alone. As adoption climbs from 10% toward 50%+ — following the S-curve pattern that every major technology adoption has followed — every effect intensifies. The wage premium gets larger before it eventually compresses once AI becomes table stakes. The productivity gap widens before it plateaus. The coverage gap closes, and with it, the window of opportunity for workers and organizations to get ahead.</p>
+    <p class="section-desc">This is the most important context for everything on this page. The disruption we're measuring is being caused by early adopters alone. As adoption climbs from 10% toward 50%+ — following the S-curve pattern that every major technology adoption has followed — every effect intensifies. The wage premium gets larger before it eventually compresses once AI becomes table stakes. The productivity gap widens before it plateaus. The coverage gap closes, and with it, the window of opportunity.</p>
+
+    <p class="section-desc">For individuals, the window is about building AI fluency now — while the premium is highest and the competition is lowest. For organizations, the window is about infrastructure. The companies that will capture disproportionate value aren't just buying AI tools — they're building the data governance, security foundations, integration layers, and internal workflows that allow AI to scale across departments. That infrastructure takes time. An organization that starts building it today, while 90% of competitors haven't, will have a structural advantage that's difficult to replicate later. The firms that waited until 2005 to build their internet presence or until 2015 to go mobile didn't just miss a wave — they spent years catching up to competitors who had already compounded their lead. AI adoption follows the same pattern, but on a compressed timeline: adoption doubled from 4.6% to ~10% in under a year.</p>
 
     <div class="chart-row">
       <div class="chart-card wide">
         <h3>AI Adoption Is Still Early (Census Bureau)</h3>
-        <p class="chart-desc">This chart draws from the Census Bureau's Business Trends and Outlook Survey — actual firm-level adoption data, not projections or sentiment surveys. The first bar is the headline: only 10% of US firms use AI in production. The broader measure (any business function, including experimentation) is 17.3%. Even in the most AI-forward sectors — Publishing (36%) and Data Processing (35%) — a majority of firms haven't started. AI adoption roughly doubled from 4.6% to ~10% in under a year, indicating the S-curve is steepening. But the key takeaway is simpler: 90% of your competitors, in most industries, haven't started yet. That's a window. It won't stay open forever — adoption is accelerating — but right now, the early-mover advantage is enormous because so few organizations have moved at all.</p>
+        <p class="chart-desc">This chart draws from the Census Bureau's Business Trends and Outlook Survey — actual firm-level adoption data, not projections or sentiment surveys. The first bar is the headline: only 10% of US firms use AI in production. The broader measure (any business function, including experimentation) is 17.3%. Even in the most AI-forward sectors — Publishing (36%) and Data Processing (35%) — a majority of firms haven't started. AI adoption roughly doubled from 4.6% to ~10% in under a year, indicating the S-curve is steepening. For individuals, this means the market for AI-skilled workers is still undersupplied — the premium remains high because demand outstrips supply. For organizations, 90% of your competitors in most industries haven't started yet. That's a strategic window. The firms in that 10% aren't just experimenting — they're accumulating compounding advantages: trained teams, refined workflows, proprietary data pipelines, and institutional knowledge about what works. Every quarter that gap compounds. The window won't stay open forever — adoption is accelerating — but right now, the early-mover advantage is enormous because so few organizations have moved at all.</p>
         <canvas id="adoptionRate"></canvas>
       </div>
     </div>
@@ -211,7 +226,7 @@
 
       <p class="cb-detail"><strong>What the data agrees on:</strong> AI disproportionately targets high-paid knowledge work, not manual labor — exposed workers earn 47% more (Anthropic). Workers who use AI see 15–55% productivity gains across every study we examined, with the largest gains going to the lowest performers (Brynjolfsson, n=5,172). AI-skilled roles command a 56% wage premium that more than doubled in roughly a year (PwC, ~1B job postings). The gap between what AI <em>can</em> do and what it actually <em>does</em> today is enormous — only 35.8% of theoretically automatable Computer & Math tasks are actually done with AI (Anthropic), and only ~10% of firms use AI in production (Census BTOS). Degree requirements are dropping 7–9pp in AI-augmented roles (PwC), and the biggest productivity gains consistently go to the lowest performers — meaning AI proficiency is increasingly competing with credentials as a signal of capability.</p>
 
-      <p class="cb-detail"><strong>Where the data disagrees:</strong> The evidence on whether AI is actively displacing workers <em>right now</em> is genuinely mixed. Brynjolfsson/ADP (3.5–5M workers/month) finds young workers ages 22–25 in AI-exposed roles are seeing 16–20% employment declines. But EIG (5 measures, CPS data) finds no differential impact — unemployment actually rose <em>less</em> for AI-exposed workers. Yale Budget Lab (7 measures) found "stability, not disruption." Brookings (March 2026) calls the evidence "collectively inconclusive" and warns of "narrator bias." We present both sides because intellectual honesty matters more than a clean narrative. What is <em>not</em> in dispute is the wage premium, the productivity gains, and the coverage gap. The argument for acting now doesn't depend on displacement — it depends on the compounding advantage that early movers capture.</p>
+      <p class="cb-detail"><strong>Where the data disagrees:</strong> Is AI actively displacing workers right now? The data points in both directions. Brynjolfsson/ADP (3.5–5M workers/month) finds young workers ages 22–25 in AI-exposed roles seeing 16–20% employment declines. EIG (5 measures, CPS data) finds the opposite — unemployment rose <em>less</em> for AI-exposed workers. Yale Budget Lab (7 measures) found "stability, not disruption." Brookings (March 2026) calls the evidence "collectively inconclusive." This is an honest disagreement among rigorous researchers using different methodologies on different datasets. We show all of it because the case for action doesn't rest on displacement. The wage premium, the productivity gains, and the coverage gap are not in dispute across any of these studies. Even if not a single job is lost to AI, the compounding advantage that early movers capture — individuals and organizations alike — is reason enough to move.</p>
 
       <p class="cb-detail"><strong>What this means for individuals:</strong></p>
       <ul class="cb-actions">
@@ -220,7 +235,12 @@
         <li><strong>Treat the coverage gap as your window.</strong> The gap between what AI can theoretically do and what it's actually doing is 50–60 percentage points in most sectors. Every point of that gap that you close for your employer or your clients translates directly into value. That value is why the premium exists — and why it's growing. The window won't stay open forever. Adoption doubled in under a year. But right now, 90% of firms haven't started, and most of your peers haven't either. The compounding starts when you do.</li>
       </ul>
 
-      <p class="cb-detail"><strong>What this means for organizations:</strong> The firms that pull ahead won't be the ones that bought the most AI tools. They'll be the ones that built the infrastructure, security foundation, data governance, and culture to actually deploy AI at scale — before the majority caught on. Census data shows over 60% of firms in even the most AI-forward sector haven't started. The competitive window for organizational adoption is wide open. But adoption is accelerating along an S-curve, and the advantages of being early compound while the window to <em>be</em> early narrows. The question isn't whether AI changes how your organization operates. It's whether you're shaping that change or waiting to react to it.</p>
+      <p class="cb-detail"><strong>What this means for organizations:</strong></p>
+      <ul class="cb-actions">
+        <li><strong>Audit your workforce against the exposure map.</strong> Identify which departments and roles sit in the red zone — not to cut headcount, but to prioritize where AI augmentation will yield the highest ROI. The departments with the widest coverage gap (theoretical capability vs actual usage) are where investment will compound fastest. Finance, legal, IT, and marketing are typically the highest-leverage starting points. Map your org chart against the treemap above and you have a data-driven AI roadmap.</li>
+        <li><strong>Build the infrastructure before the tools.</strong> The firms that pull ahead won't be the ones that bought the most AI licenses. They'll be the ones that built the data governance, security foundations, integration layers, and internal workflows that allow AI to scale across departments. That plumbing takes 6–12 months to get right. An organization that starts today — while 90% of competitors haven't — will have a structural advantage that's nearly impossible to replicate by just buying tools later. Census data shows over 60% of firms in even the most AI-forward sector haven't started.</li>
+        <li><strong>Hire for AI fluency and reskill from within.</strong> Degree requirements are dropping 7–9pp in AI-augmented roles (PwC). The productivity data shows the biggest gains go to the lowest-performing workers (+36%). That means reskilling your existing workforce — especially mid-career employees without advanced degrees — may be the highest-ROI talent investment available. Companies that still screen primarily on credentials are filtering out an expanding pool of AI-skilled candidates. Redesign hiring criteria around demonstrated AI proficiency, and invest in making your current team the AI-skilled workforce you'd otherwise have to recruit.</li>
+      </ul>
 
       <p class="cb-closing">The transformation is real, even where its pace is debated. The wage premium is real. The productivity gains are real. The coverage gap is real. And 90% of the adoption is still ahead. The people, companies, and institutions that take this seriously now — while the evidence is early and the window for action is wide — will be the ones best positioned for what comes next.</p>
     </div>
@@ -231,8 +251,10 @@
 <section class="section" id="methodology">
   <div class="container">
     <h2>Methodology & Data Accuracy</h2>
-    <p class="section-desc">Every number on this page is sourced from published research, federal data, or peer-reviewed experiments. No statistics are invented or estimated. Below is a full accounting of each data source — what it covers, how large its sample is, and what its limitations are — so you can verify any claim and judge the analysis for yourself. Where the evidence is mixed or contested, we say so.</p>
+    <p class="section-desc">Every number on this page is sourced from published research, federal data, or peer-reviewed experiments. No statistics are invented or estimated. Where the evidence is mixed or contested, we say so.</p>
 
+    <details class="method-toggle">
+      <summary class="method-toggle-btn">Show full methodology — 9 data sources, limitations & links</summary>
     <div class="method-grid">
       <div class="method-card">
         <h3>Occupation Data (BLS)</h3>
@@ -288,6 +310,7 @@
         <div class="method-tag">Accounts for acceleration &middot; Honest about uncertainty</div>
       </div>
     </div>
+    </details>
   </div>
 </section>
 
@@ -302,5 +325,16 @@
 <script src="occupation_data.js"></script>
 <script src="data.js"></script>
 <script src="charts.js"></script>
+<script>
+// Reading progress bar
+(function() {
+  const bar = document.getElementById('readingProgress');
+  if (!bar) return;
+  window.addEventListener('scroll', function() {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }, { passive: true });
+})();
+</script>
 </body>
 </html>
