@@ -33,7 +33,7 @@ const ANTHROPIC = {
 
 // PwC 2025 Global AI Jobs Barometer (~1B job postings, 6 continents)
 const PWC = {
-  wagePremium: 56,              // % premium for AI-skilled roles (up from 25% in 2023)
+  wagePremium: 56,              // % premium for AI-skilled roles (up from 25% in PwC 2024 report)
   productivityGrowthExposed: 27,// % in most AI-exposed industries (2018-2024)
   productivityGrowthUnexposed: 9,// % in least AI-exposed industries
   jobGrowthLowExposure: 65,     // % job growth 2019-2024
