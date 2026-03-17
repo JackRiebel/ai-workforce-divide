@@ -192,11 +192,10 @@ a:hover { text-decoration: underline; }
 /* Treemap */
 .treemap-wrapper {
   position: relative;
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  height: 80vh;
-  min-height: 560px;
+  width: calc(100vw - 20px);
+  margin-left: calc(-50vw + 50% + 10px);
+  height: 85vh;
+  min-height: 600px;
   background: #08080c;
   border-radius: 12px;
   overflow: hidden;
